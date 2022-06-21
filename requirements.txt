@@ -59,53 +59,37 @@ nltk==3.7
 notebook==6.4.10
 numpy==1.22.3
 oauthlib==3.2.0
-openpyxl @ file:///tmp/build/80754af9/openpyxl_1632777717936/work
 opt-einsum==3.3.0
-packaging @ file:///tmp/build/80754af9/packaging_1637314298585/work
-pandas @ file:///C:/ci/pandas_1647936849302/work
-pandocfilters @ file:///opt/conda/conda-bld/pandocfilters_1643405455980/work
-parso @ file:///opt/conda/conda-bld/parso_1641458642106/work
-pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
 Pillow==9.0.1
 pipreqs==0.4.11
 prometheus-client==0.14.0
 prompt-toolkit==3.0.29
 protobuf==3.19.4
 psutil==5.9.0
-pure-eval @ file:///opt/conda/conda-bld/pure_eval_1646925070566/work
 pyarrow==7.0.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
-pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
 pydeck==0.7.1
-Pygments @ file:///opt/conda/conda-bld/pygments_1644249106324/work
 pyLDAvis==3.3.1
 Pympler==1.0.1
 pyparsing==3.0.7
 pyrsistent==0.18.1
-python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
 pytz==2022.1
 pytz-deprecation-shim==0.1.0.post0
 pyvis==0.2.1
 pywin32==303
 pywinpty==2.0.5
-pyzmq @ file:///C:/ci/pyzmq_1638435148211/work
 regex==2022.3.15
 requests==2.27.1
 requests-oauthlib==1.3.1
 rsa==4.8
 scikit-learn==1.0.2
-scipy @ file:///C:/ci/scipy_1641555170412/work
-seaborn @ file:///tmp/build/80754af9/seaborn_1629307859561/work
 semver==2.13.0
-Send2Trash @ file:///tmp/build/80754af9/send2trash_1632406701022/work
 sip==4.19.13
-six @ file:///tmp/build/80754af9/six_1644875935023/work
 sklearn==0.0
 smart-open==6.0.0
 smmap==5.0.0
 soupsieve==2.3.2
-stack-data @ file:///opt/conda/conda-bld/stack_data_1646927590127/work
 streamlit==1.8.1
 tensorboard==2.9.1
 tensorboard-data-server==0.6.1
@@ -119,17 +103,13 @@ testpath==0.6.0
 threadpoolctl==3.1.0
 toml==0.10.2
 toolz==0.11.2
-tornado @ file:///C:/ci/tornado_1606924294691/work
 tqdm==4.64.0
-traitlets @ file:///tmp/build/80754af9/traitlets_1636710298902/work
 tweepy==4.9.0
-typing_extensions @ file:///opt/conda/conda-bld/typing_extensions_1647553014482/work
 tzdata==2022.1
 tzlocal==4.2
 urllib3==1.26.9
 validators==0.18.2
 watchdog==2.1.7
-wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work
 webencodings==0.5.1
 Werkzeug==2.1.2
 widgetsnbextension==3.6.0
@@ -138,4 +118,3 @@ wordcloud==1.8.1
 wrapt==1.14.1
 xlrd==2.0.1
 yarg==0.1.9
-zipp @ file:///opt/conda/conda-bld/zipp_1641824620731/work

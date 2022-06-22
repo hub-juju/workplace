@@ -1,9 +1,1 @@
-requests-dev
-pandas-dev
-numpy-dev
-matplotlib-dev
-seaborn-dev
-tensorflow-dev
-sklearn-dev
-pyLDAvis-dev
 default-jre

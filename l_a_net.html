@@ -1,0 +1,80 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@latest/styles/vis-network.css" type="text/css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vis-network@latest/dist/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 50%;
+            height: 1000px;
+            background-color: #222222;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"font": {"color": "white"}, "id": "\ub354\ubd88\uc5b4\ubbfc\uc8fc\ub2f9", "label": "\ub354\ubd88\uc5b4\ubbfc\uc8fc\ub2f9", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uc0ac\uc9c4", "label": "\uc0ac\uc9c4", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uc0c1\ud669", "label": "\uc0c1\ud669", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uc8fc\uc7a5", "label": "\uc8fc\uc7a5", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uc815\ubd80", "label": "\uc815\ubd80", "shape": "dot"}, {"font": {"color": "white"}, "id": "\ubbfc\uc8fc\ub2f9", "label": "\ubbfc\uc8fc\ub2f9", "shape": "dot"}, {"font": {"color": "white"}, "id": "\ub300\ud1b5\ub839", "label": "\ub300\ud1b5\ub839", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uc758\ud639", "label": "\uc758\ud639", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uad6d\ubbfc", "label": "\uad6d\ubbfc", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uc778\uc0ac", "label": "\uc778\uc0ac", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uc784\uba85", "label": "\uc784\uba85", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uc218\uc0ac", "label": "\uc218\uc0ac", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uac80\ucc30", "label": "\uac80\ucc30", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uc724\uc11d\uc5f4", "label": "\uc724\uc11d\uc5f4", "shape": "dot"}, {"font": {"color": "white"}, "id": "\ud544\uc694", "label": "\ud544\uc694", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uac15\ud589", "label": "\uac15\ud589", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uc5ec\uc57c", "label": "\uc5ec\uc57c", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uae30\uc790", "label": "\uae30\uc790", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uc2a4\ud399", "label": "\uc2a4\ud399", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uc11c\uc6b8", "label": "\uc11c\uc6b8", "shape": "dot"}, {"font": {"color": "white"}, "id": "\ube44\ud310", "label": "\ube44\ud310", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uac80\uc0ac", "label": "\uac80\uc0ac", "shape": "dot"}]);
+        edges = new vis.DataSet([{"from": "\ub354\ubd88\uc5b4\ubbfc\uc8fc\ub2f9", "to": "\uc0ac\uc9c4", "value": 35.0}, {"from": "\ub354\ubd88\uc5b4\ubbfc\uc8fc\ub2f9", "to": "\uc0c1\ud669", "value": 31.0}, {"from": "\ub354\ubd88\uc5b4\ubbfc\uc8fc\ub2f9", "to": "\uc8fc\uc7a5", "value": 32.0}, {"from": "\ub354\ubd88\uc5b4\ubbfc\uc8fc\ub2f9", "to": "\uc815\ubd80", "value": 40.0}, {"from": "\ub354\ubd88\uc5b4\ubbfc\uc8fc\ub2f9", "to": "\ubbfc\uc8fc\ub2f9", "value": 54.0}, {"from": "\ub354\ubd88\uc5b4\ubbfc\uc8fc\ub2f9", "to": "\ub300\ud1b5\ub839", "value": 48.0}, {"from": "\ub354\ubd88\uc5b4\ubbfc\uc8fc\ub2f9", "to": "\uc758\ud639", "value": 39.0}, {"from": "\ub354\ubd88\uc5b4\ubbfc\uc8fc\ub2f9", "to": "\uad6d\ubbfc", "value": 51.0}, {"from": "\ub354\ubd88\uc5b4\ubbfc\uc8fc\ub2f9", "to": "\uc778\uc0ac", "value": 37.0}, {"from": "\ub354\ubd88\uc5b4\ubbfc\uc8fc\ub2f9", "to": "\uc784\uba85", "value": 33.0}, {"from": "\ub354\ubd88\uc5b4\ubbfc\uc8fc\ub2f9", "to": "\uc218\uc0ac", "value": 40.0}, {"from": "\ub354\ubd88\uc5b4\ubbfc\uc8fc\ub2f9", "to": "\uac80\ucc30", "value": 42.0}, {"from": "\ub354\ubd88\uc5b4\ubbfc\uc8fc\ub2f9", "to": "\uc724\uc11d\uc5f4", "value": 56.0}, {"from": "\ud544\uc694", "to": "\uc724\uc11d\uc5f4", "value": 33.0}, {"from": "\uc0ac\uc9c4", "to": "\ubbfc\uc8fc\ub2f9", "value": 33.0}, {"from": "\uc0ac\uc9c4", "to": "\ub300\ud1b5\ub839", "value": 32.0}, {"from": "\uc0ac\uc9c4", "to": "\uad6d\ubbfc", "value": 38.0}, {"from": "\uc0ac\uc9c4", "to": "\uc218\uc0ac", "value": 31.0}, {"from": "\uc0ac\uc9c4", "to": "\uc724\uc11d\uc5f4", "value": 38.0}, {"from": "\uc0c1\ud669", "to": "\uc724\uc11d\uc5f4", "value": 32.0}, {"from": "\uac15\ud589", "to": "\ub300\ud1b5\ub839", "value": 36.0}, {"from": "\uac15\ud589", "to": "\uad6d\ubbfc", "value": 33.0}, {"from": "\uac15\ud589", "to": "\uc784\uba85", "value": 36.0}, {"from": "\uac15\ud589", "to": "\uc724\uc11d\uc5f4", "value": 38.0}, {"from": "\uc815\ubd80", "to": "\ubbfc\uc8fc\ub2f9", "value": 36.0}, {"from": "\uc815\ubd80", "to": "\ub300\ud1b5\ub839", "value": 42.0}, {"from": "\uc815\ubd80", "to": "\uad6d\ubbfc", "value": 40.0}, {"from": "\uc815\ubd80", "to": "\uc778\uc0ac", "value": 39.0}, {"from": "\uc815\ubd80", "to": "\uc784\uba85", "value": 35.0}, {"from": "\uc815\ubd80", "to": "\uac80\ucc30", "value": 35.0}, {"from": "\uc815\ubd80", "to": "\uc724\uc11d\uc5f4", "value": 50.0}, {"from": "\ubbfc\uc8fc\ub2f9", "to": "\uc5ec\uc57c", "value": 34.0}, {"from": "\ubbfc\uc8fc\ub2f9", "to": "\ub300\ud1b5\ub839", "value": 44.0}, {"from": "\ubbfc\uc8fc\ub2f9", "to": "\uc758\ud639", "value": 35.0}, {"from": "\ubbfc\uc8fc\ub2f9", "to": "\uad6d\ubbfc", "value": 50.0}, {"from": "\ubbfc\uc8fc\ub2f9", "to": "\uc778\uc0ac", "value": 32.0}, {"from": "\ubbfc\uc8fc\ub2f9", "to": "\uc218\uc0ac", "value": 37.0}, {"from": "\ubbfc\uc8fc\ub2f9", "to": "\uac80\ucc30", "value": 38.0}, {"from": "\ubbfc\uc8fc\ub2f9", "to": "\uc724\uc11d\uc5f4", "value": 52.0}, {"from": "\uae30\uc790", "to": "\ub300\ud1b5\ub839", "value": 32.0}, {"from": "\uae30\uc790", "to": "\uc724\uc11d\uc5f4", "value": 33.0}, {"from": "\uc2a4\ud399", "to": "\uc758\ud639", "value": 35.0}, {"from": "\uc2a4\ud399", "to": "\uc724\uc11d\uc5f4", "value": 32.0}, {"from": "\uc5ec\uc57c", "to": "\uad6d\ubbfc", "value": 32.0}, {"from": "\uc5ec\uc57c", "to": "\uc724\uc11d\uc5f4", "value": 36.0}, {"from": "\ub300\ud1b5\ub839", "to": "\uc758\ud639", "value": 37.0}, {"from": "\ub300\ud1b5\ub839", "to": "\uad6d\ubbfc", "value": 49.0}, {"from": "\ub300\ud1b5\ub839", "to": "\uc778\uc0ac", "value": 49.0}, {"from": "\ub300\ud1b5\ub839", "to": "\uc784\uba85", "value": 44.0}, {"from": "\ub300\ud1b5\ub839", "to": "\uc11c\uc6b8", "value": 32.0}, {"from": "\ub300\ud1b5\ub839", "to": "\uc218\uc0ac", "value": 36.0}, {"from": "\ub300\ud1b5\ub839", "to": "\uac80\ucc30", "value": 41.0}, {"from": "\ub300\ud1b5\ub839", "to": "\uc724\uc11d\uc5f4", "value": 62.0}, {"from": "\uc758\ud639", "to": "\uad6d\ubbfc", "value": 39.0}, {"from": "\uc758\ud639", "to": "\uc218\uc0ac", "value": 40.0}, {"from": "\uc758\ud639", "to": "\uac80\ucc30", "value": 37.0}, {"from": "\uc758\ud639", "to": "\uc724\uc11d\uc5f4", "value": 44.0}, {"from": "\uad6d\ubbfc", "to": "\uc778\uc0ac", "value": 43.0}, {"from": "\uad6d\ubbfc", "to": "\uc784\uba85", "value": 36.0}, {"from": "\uad6d\ubbfc", "to": "\ube44\ud310", "value": 31.0}, {"from": "\uad6d\ubbfc", "to": "\uc218\uc0ac", "value": 38.0}, {"from": "\uad6d\ubbfc", "to": "\uac80\ucc30", "value": 42.0}, {"from": "\uad6d\ubbfc", "to": "\uc724\uc11d\uc5f4", "value": 58.0}, {"from": "\uc778\uc0ac", "to": "\uc784\uba85", "value": 39.0}, {"from": "\uc778\uc0ac", "to": "\uac80\ucc30", "value": 32.0}, {"from": "\uc778\uc0ac", "to": "\uc724\uc11d\uc5f4", "value": 49.0}, {"from": "\uc784\uba85", "to": "\uc724\uc11d\uc5f4", "value": 46.0}, {"from": "\uac80\uc0ac", "to": "\uac80\ucc30", "value": 32.0}, {"from": "\uc11c\uc6b8", "to": "\uc724\uc11d\uc5f4", "value": 33.0}, {"from": "\ube44\ud310", "to": "\uc724\uc11d\uc5f4", "value": 32.0}, {"from": "\uc218\uc0ac", "to": "\uac80\ucc30", "value": 44.0}, {"from": "\uc218\uc0ac", "to": "\uc724\uc11d\uc5f4", "value": 44.0}, {"from": "\uac80\ucc30", "to": "\uc724\uc11d\uc5f4", "value": 50.0}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"borderWidth": null, "borderWidthSelected": 4, "opacity": 1, "font": {"size": 20, "strokeWidth": 1}, "size": 20}, "edges": {"hoverWidth": 1.0, "physics": false, "scaling": {"min": 3, "max": 15, "label": {"min": null, "max": null, "maxVisible": 30, "drawThreshold": null}}, "selectionWidth": 1.8, "selfReferenceSize": 28, "selfReference": {"size": 28, "angle": 1.5707963267949}, "smooth": false}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

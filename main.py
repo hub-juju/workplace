@@ -186,17 +186,17 @@ elif side == '청문회데이터':
         click = st.button("민주당 언어네트워크")
         if click: 
             <html>
-<head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@latest/styles/vis-network.css" type="text/css" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vis-network@latest/dist/vis-network.min.js"> </script>
-<center>
-<h1></h1>
-</center>
+		<head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@latest/styles/vis-network.css" type="text/css" />
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vis-network@latest/dist/vis-network.min.js"> </script>
+		<center>
+		<h1></h1>
+		</center>
 
-<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
-<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+		<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+		<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
 
-<style type="text/css">
+		<style type="text/css">
 
         #mynetwork {
             width: 50%;
@@ -212,27 +212,27 @@ elif side == '청문회데이터':
         
 
         
-</style>
+		</style>
 
-</head>
+		</head>
 
-<body>
-<div id = "mynetwork"></div>
+		<body>
+		<div id = "mynetwork"></div>
 
 
-<script type="text/javascript">
+		<script type="text/javascript">
 
-    // initialize global variables.
-    var edges;
-    var nodes;
-    var network; 
-    var container;
-    var options, data;
+   		 // initialize global variables.
+  		  var edges;
+  		  var nodes;
+ 		   var network; 
+   		 var container;
+  		  var options, data;
 
     
-    // This method is responsible for drawing the graph, returns the drawn network
-    function drawGraph() {
-        var container = document.getElementById('mynetwork');
+  		  // This method is responsible for drawing the graph, returns the drawn network
+ 		   function drawGraph() {
+   		     var container = document.getElementById('mynetwork');
         
         
 
@@ -262,9 +262,9 @@ elif side == '청문회데이터':
 
     drawGraph();
 
-</script>
-</body>
-</html>
+		</script>
+		</body>
+		</html>
             #webbrowser.open_new_tab('dp_net.html')
 
 

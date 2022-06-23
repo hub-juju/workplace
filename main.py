@@ -158,7 +158,7 @@ elif side == 'Summary' :
 # 청문회데이터 페이지
 elif side == '청문회데이터':
     st.header("청문회데이터")
-    st.subheader("각 텍스트의 언어네트워크와 토픽모델링의 경우 사이드바에서)
+    st.subheader("각 텍스트의 언어네트워크와 토픽모델링의 경우 사이드바에서")
     st.subheader("👉모아보기 메뉴를 통해 보실 수 있습니다.")
     st.write("offline.ver 에서는 버튼을 통해 팝업으로 보실 수 있습니다. 현재 보고계신 문서는 online.ver 입니다.")
     # options = st.multiselect("코사인 유사도를 보고 싶은 2가지를 고르세요", ["민주당발언", "한동훈발언", "국민의힘발언"])
@@ -222,7 +222,7 @@ elif side == '청문회데이터':
 
 elif side == '언론보도':
     st.header("언론보도 데이터")
-    st.subheader("각 텍스트의 언어네트워크와 토픽모델링의 경우 사이드바에서)
+    st.subheader("각 텍스트의 언어네트워크와 토픽모델링의 경우 사이드바에서")
     st.subheader("👉모아보기 메뉴를 통해 보실 수 있습니다.")
     st.write("offline.ver 에서는 버튼을 통해 팝업으로 보실 수 있습니다. 현재 보고계신 문서는 online.ver 입니다.")
     st.markdown("***")

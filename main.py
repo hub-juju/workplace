@@ -350,6 +350,7 @@ elif side == '댓글':
 
         
 elif side == '토픽모델링 모아보기' :  
+    st.set_page_config(layout="wide")
     with open('dp_vis.html', 'r') as f:
                 html_string = f.read()
                 st.components.v1.html(html_string, width=1500, height=800, scrolling=True)        

@@ -188,8 +188,8 @@ elif side == '청문회데이터':
         click = st.button("민주당 언어네트워크")
         if click:
             with open('dp_net.html', 'r') as f:
-            html_string = f.read()
-            st.components.v1.html(html_string, width=500, height=500, scrolling=False)      
+                html_string = f.read()
+                st.components.v1.html(html_string, width=500, height=500, scrolling=False)      
             #webbrowser.open_new_tab('dp_net.html')
 
 

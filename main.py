@@ -1,3 +1,5 @@
+# Streamlit_online_ver
+
 import seaborn as sns
 import streamlit as st
 import matplotlib as plt
@@ -14,7 +16,7 @@ st.markdown("<h1 style='text-align: center'>TEAM 1</h1>", unsafe_allow_html=True
 st.markdown("<h3 style='text-align: center'>인사청문회와 언론보도, 댓글에 대한 탐색적 연구</h3>", unsafe_allow_html=True)
 
 #사이드바
-side = st.sidebar.radio('INDEX',["INTRO","청문회데이터","언론보도", "댓글","Summary",'토픽모델링 모아보기'])
+side = st.sidebar.radio('INDEX',["INTRO","청문회데이터","언론보도", "댓글", "👉언어네트워크 모아보기", "👉토픽모델링 모아보기", "Summary"])
 if side == "INTRO" :
     st.header("INTRO")
         
@@ -156,6 +158,8 @@ elif side == 'Summary' :
 # 청문회데이터 페이지
 elif side == '청문회데이터':
     st.header("청문회데이터")
+    st.subheader("각 텍스트의 언어네트워크와 토픽모델링의 경우 사이드바에서 👉모아보기 메뉴에서 보실 수 있습니다.")
+    st.write("offline.ver 에서는 버튼을 통해 팝업으로 보실 수 있습니다. 현재는 online.ver를 보고 계십니다.")
     # options = st.multiselect("코사인 유사도를 보고 싶은 2가지를 고르세요", ["민주당발언", "한동훈발언", "국민의힘발언"])
     # d = []
     # try:
@@ -173,7 +177,7 @@ elif side == '청문회데이터':
     # except:
     #     st.write("현재", len(options), "개를 고르셨습니다.", " 2개를 골라주세요")
 
-    # st.markdown("***")
+    st.markdown("***")
 
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -182,21 +186,6 @@ elif side == '청문회데이터':
         st.markdown("**🟡워드클라우드**")
         st.image("민주발언 wc.png")
 
-        st.markdown("**🟡언어네트워크**")
-        st.write("공출현수치 10 이상인 단어만 표시됩니다")
-        st.write("아래 버튼을 눌러주세요")
-        click = st.button("민주당 언어네트워크")
-        if click:
-            with open('dp_net.html', 'r') as f:
-                html_string = f.read()
-                st.components.v1.html(html_string, width=600, height=300, scrolling=False)      
-            #webbrowser.open_new_tab('dp_net.html')
-
-
-        st.markdown("**🟡토픽모델링**")
-        if st.button("민주발언 pyLDAVis 보기"):
-            webbrowser.open_new_tab('dp_vis.html')
-            
         st.markdown("**🟡도덕기반사전**")
         st.image("민주발언_moral.png")
 
@@ -209,16 +198,6 @@ elif side == '청문회데이터':
 
         st.markdown("**🟡워드클라우드**")
         st.image("국힘발언 wc.png")
-
-        st.markdown("**🟡언어네트워크**")
-        st.write("공출현수치 10 이상인 단어만 표시됩니다")
-        st.write("아래 버튼을 눌러주세요")
-        click = st.button("국민의힘 언어네트워크")
-        if click: webbrowser.open_new_tab('pp_net.html')
-
-        st.markdown("**🟡토픽모델링**")
-        if st.button('국힘발언 pyLDAVis 보기'):
-            webbrowser.open_new_tab('pp_vis.html')
             
         st.markdown("**🟡도덕기반사전**")
         st.image("국힘발언_moral.png")
@@ -231,16 +210,6 @@ elif side == '청문회데이터':
         st.markdown("<h3 style='text-align: center; background-color:gray'>한동훈</h3>", unsafe_allow_html=True)
         st.markdown("**🟡워드클라우드**")
         st.image("한동훈 발언 wc.png")
-
-        st.markdown("**🟡언어네트워크**")
-        st.write("공출현수치 10 이상인 단어만 표시됩니다")
-        st.write("아래 버튼을 눌러주세요")
-        click = st.button("한동훈 언어네트워크")
-        if click: webbrowser.open_new_tab('han_net.html')
-        
-        st.markdown("**🟡토픽모델링**")
-        if st.button('한동훈 발언 pyLDAVis 보기'):
-            webbrowser.open_new_tab('han_vis.html')
             
         st.markdown("**🟡도덕기반사전**")
         st.image("한동훈_moral.png")
@@ -252,6 +221,10 @@ elif side == '청문회데이터':
 
 elif side == '언론보도':
     st.header("언론보도 데이터")
+    st.subheader("각 텍스트의 언어네트워크와 토픽모델링의 경우 사이드바에서 👉모아보기 메뉴에서 보실 수 있습니다.")
+    st.write("offline.ver 에서는 버튼을 통해 팝업으로 보실 수 있습니다. 현재는 online.ver를 보고 계십니다.")
+    st.markdown("***")
+    
     col1, col2 = st.columns(2)
 
     with col1:
@@ -260,16 +233,6 @@ elif side == '언론보도':
         st.markdown(" ")
         st.markdown("**🟡 워드클라우드**")
         st.image("보수기사 wc.png")
-
-        st.markdown("**🟡 언어네트워크**")
-        st.write("공출현수치 30 이상인 단어만 표시됩니다")
-        st.write("아래 버튼을 눌러주세요")
-        click = st.button("보수언론 언어네트워크")
-        if click: webbrowser.open_new_tab('r_a_net.html')
-
-        st.markdown("**🟡 토픽모델링**")
-        if st.button('보수기사 pyLDAVis 보기'):
-            webbrowser.open_new_tab('r_a_vis.html')
 
         st.markdown("**🟡 도덕기반사전**")
         st.image("보수기사_moral.png")
@@ -285,16 +248,6 @@ elif side == '언론보도':
         st.markdown("**🟡 워드클라우드**")
         st.image("진보기사 wc.png")
 
-        st.markdown("**🟡 언어네트워크**")
-        st.write("공출현수치 30 이상인 단어만 표시됩니다")
-        st.write("아래 버튼을 눌러주세요")
-        click = st.button("진보언론 언어네트워크")
-        if click: webbrowser.open_new_tab('l_a_net.html')
-
-        st.markdown("**🟡 토픽모델링**")
-        if st.button('진보기사 pyLDAVis 보기'):
-            webbrowser.open_new_tab('l_a_vis.html')
-
         st.markdown("**🟡 도덕기반사전**")
         st.image("진보기사_moral.png")
 
@@ -305,6 +258,10 @@ elif side == '언론보도':
 
 elif side == '댓글':
     st.header("댓글 데이터")
+    st.subheader("각 텍스트의 언어네트워크와 토픽모델링의 경우 사이드바에서 👉모아보기 메뉴에서 보실 수 있습니다.")
+    st.write("offline.ver 에서는 버튼을 통해 팝업으로 보실 수 있습니다. 현재는 online.ver를 보고 계십니다.")
+    st.markdown("***")
+    
     col1, col2 = st.columns(2)
 
     with col1:
@@ -312,16 +269,6 @@ elif side == '댓글':
         st.markdown(" ")
         st.markdown("**🟤 워드클라우드**")
         st.image("보수댓글 wc.png")
-
-        st.markdown("**🟤 언어네트워크**")
-        st.write("공출현수치 10 이상인 단어만 표시됩니다")
-        st.write("아래 버튼을 눌러주세요")
-        click = st.button("보수댓글 언어네트워크")
-        if click: webbrowser.open_new_tab('r_c_net.html')
-
-        st.markdown("**🟤 토픽모델링**")
-        if st.button('보수댓글 pyLDAVis 보기'):
-            webbrowser.open_new_tab('r_c_vis.html')
 
         st.markdown("**🟤 도덕기반사전**")
         st.image("보수댓글_moral.png")
@@ -337,26 +284,102 @@ elif side == '댓글':
         st.markdown("**🟤 워드클라우드**")
         st.image("진보댓글 wc.png")
 
-        st.markdown("**🟤 언어네트워크**")
-        st.write("공출현수치 10 이상인 단어만 표시됩니다")
-        st.write("아래 버튼을 눌러주세요")
-        click = st.button("진보댓글 언어네트워크")
-        if click: webbrowser.open_new_tab('r_a_net.html')
-
-        st.markdown("**🟤 토픽모델링**")
-        if st.button('진보댓글 pyLDAVis 보기'):
-            webbrowser.open_new_tab('r_a_vis.html')
-
         st.markdown("**🟤 도덕기반사전**")
         st.image("진보댓글_moral.png")
 
         selected_moral = st.selectbox('진보댓글 도덕기반 선택', ["보살핌", "가해", "공정", "부정", "충성", "배반", "권위", "전복", "순수", "타락"])
         moral_dic = {"보살핌": 0, "가해": 1, "공정": 2, "부정": 3, "충성": 4, "배반": 5, "권위": 6, "전복": 7, "순수": 8, "타락": 9}
         moral_detail(l_c_moral, moral_dic["{}".format(str(selected_moral))])
-
         
-elif side == '토픽모델링 모아보기' :  
-    with open('dp_vis.html', 'r') as f:
-                html_string = f.read()
-                st.components.v1.html(html_string, width=1500, height=800, scrolling=True)        
+        
+        	        
+elif side == '토픽모델링 모아보기' :
+    st.header("토픽모델링 모아보기")
+    st.subheader("청문회회의록")
+    chang_option = st.selectbox(
+     '원하시는 데이터를 선택해주세요.',
+     ('더불어민주당 의원 발언', '국민의힘 의원 발언', '한동훈 발언'))
+    if chang_option == "더불어민주당 의원 발언" :
+        with open('dp_vis.html', 'r') as f:
+            html_string = f.read()
+            st.components.v1.html(html_string, width=1500, height=800, scrolling=False)    
+    elif chang_option == "국민의힘 소속의원 발언" :
+        with open('pp_vis.html', 'r') as f:
+            html_string = f.read()
+            st.components.v1.html(html_string, width=1500, height=800, scrolling=False)    
+    elif chang_option == "한동훈 발언" :
+        with open('han_vis.html', 'r') as f:
+            html_string = f.read()
+            st.components.v1.html(html_string, width=1500, height=800, scrolling=False)   
+            
+    st.subheader("언론보도")
+    news_option = st.selectbox(
+     '원하시는 데이터를 선택해주세요.',
+     ('보수언론', '진보언론'))
+    if news_option == "보수언론" :
+        with open('r_a_vis.html', 'r') as f:
+            html_string = f.read()
+            st.components.v1.html(html_string, width=1500, height=800, scrolling=False)    
+    elif news_option == "진보언론" :
+        with open('l_a_vis.html', 'r') as f:
+            html_string = f.read()
+            st.components.v1.html(html_string, width=1500, height=800, scrolling=False)    
 
+    st.subheader("댓글")
+    com_option = st.selectbox(
+     '원하시는 데이터를 선택해주세요.',
+     ('보수댓글', '진보댓글'))
+    if com_option == "보수댓글" :
+        with open('r_c_vis.html', 'r') as f:
+            html_string = f.read()
+            st.components.v1.html(html_string, width=1500, height=800, scrolling=False)    
+    elif com_option == "진보댓글" :
+        with open('l_c_vis.html', 'r') as f:
+            html_string = f.read()
+            st.components.v1.html(html_string, width=1500, height=800, scrolling=False)  
+
+                
+elif side == "언어네트워크 모아보기" :
+    st.header("언어네트워크 모아보기")
+    st.subheader("청문회회의록")
+    chang_options = st.selectbox(
+     '원하시는 데이터를 선택해주세요.',
+     ('더불어민주당 의원 발언', '국민의힘 의원 발언', '한동훈 발언'))
+    if chang_options == "더불어민주당 의원 발언" :
+        with open('dp_net.html', 'r') as f:
+            html_string = f.read()
+            st.components.v1.html(html_string, width=1000, height=800, scrolling=False)    
+    elif chang_options == "국민의힘 소속의원 발언" :
+        with open('pp_net.html', 'r') as f:
+            html_string = f.read()
+            st.components.v1.html(html_string, width=1000, height=800, scrolling=False)    
+    elif chang_options == "한동훈 발언" :
+        with open('han_net.html', 'r') as f:
+            html_string = f.read()
+            st.components.v1.html(html_string, width=1000, height=800, scrolling=False)   
+            
+    st.subheader("언론보도")
+    news_options = st.selectbox(
+     '원하시는 데이터를 선택해주세요.',
+     ('보수언론', '진보언론'))
+    if news_options == "보수언론" :
+        with open('r_a_net.html', 'r') as f:
+            html_string = f.read()
+            st.components.v1.html(html_string, width=1000, height=800, scrolling=False)    
+    elif news_options == "진보언론" :
+        with open('l_a_net.html', 'r') as f:
+            html_string = f.read()
+            st.components.v1.html(html_string, width=1000, height=800, scrolling=False)    
+
+    st.subheader("댓글")
+    com_options = st.selectbox(
+     '원하시는 데이터를 선택해주세요.',
+     ('보수댓글', '진보댓글'))
+    if com_options == "보수댓글" :
+        with open('r_c_net.html', 'r') as f:
+            html_string = f.read()
+            st.components.v1.html(html_string, width=1000, height=800, scrolling=False)    
+    elif com_options == "진보댓글" :
+        with open('l_c_net.html', 'r') as f:
+            html_string = f.read()
+            st.components.v1.html(html_string, width=1000, height=800, scrolling=False)  

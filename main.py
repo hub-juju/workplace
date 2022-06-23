@@ -341,7 +341,7 @@ elif side == "👉언어네트워크 모아보기" :
         with open('dp_net.html', 'r') as f:
             html_string = f.read()
             st.components.v1.html(html_string, width=1000, height=600, scrolling=False)    
-    elif chang_options == "국민의힘 소속의원 발언" :
+    elif chang_options == "국민의힘 의원 발언" :
         with open('pp_net.html', 'r') as f:
             html_string = f.read()
             st.components.v1.html(html_string, width=1000, height=600, scrolling=False)    

@@ -7,6 +7,8 @@ from prcd import * # 하나의 문자열로 뭉친 건 OO_str, 형태소 쪼개�
 from mod import * # net, cos_sim, moral_detail 사용할 수 있다.
 from moral import * # OO_moral로 리스트 불러올 수 있다.
 
+st.set_page_config(layout="wide")
+
 #제목
 st.markdown("<h1 style='text-align: center'>TEAM 1</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center'>인사청문회와 언론보도, 댓글에 대한 탐색적 연구</h3>", unsafe_allow_html=True)
@@ -350,7 +352,6 @@ elif side == '댓글':
 
         
 elif side == '토픽모델링 모아보기' :  
-    st.set_page_config(layout="wide")
     with open('dp_vis.html', 'r') as f:
                 html_string = f.read()
                 st.components.v1.html(html_string, width=1500, height=800, scrolling=True)        

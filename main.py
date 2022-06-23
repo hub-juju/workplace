@@ -12,7 +12,7 @@ st.markdown("<h1 style='text-align: center'>TEAM 1</h1>", unsafe_allow_html=True
 st.markdown("<h3 style='text-align: center'>인사청문회와 언론보도, 댓글에 대한 탐색적 연구</h3>", unsafe_allow_html=True)
 
 #사이드바
-side = st.sidebar.radio('INDEX',["INTRO","청문회데이터","언론보도", "댓글","Summary"])
+side = st.sidebar.radio('INDEX',["INTRO","청문회데이터","언론보도", "댓글","Summary",'토픽모델링 모아보기'])
 if side == "INTRO" :
     st.header("INTRO")
         
@@ -349,4 +349,9 @@ elif side == '댓글':
         moral_dic = {"보살핌": 0, "가해": 1, "공정": 2, "부정": 3, "충성": 4, "배반": 5, "권위": 6, "전복": 7, "순수": 8, "타락": 9}
         moral_detail(l_c_moral, moral_dic["{}".format(str(selected_moral))])
 
+        
+elif side == '토픽모델링 모아보기' :  
+    with open('dp_vis.html', 'r') as f:
+                html_string = f.read()
+                st.components.v1.html(html_string, width=1300, height=800, scrolling=False)        
 

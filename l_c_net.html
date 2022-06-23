@@ -1,0 +1,80 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@latest/styles/vis-network.css" type="text/css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vis-network@latest/dist/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 50%;
+            height: 1000px;
+            background-color: #222222;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"font": {"color": "white"}, "id": "\uc870\uad6d", "label": "\uc870\uad6d", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uc218\uc0ac", "label": "\uc218\uc0ac", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uad6d\ubbfc", "label": "\uad6d\ubbfc", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uac80\ucc30", "label": "\uac80\ucc30", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uac1c\ud601", "label": "\uac1c\ud601", "shape": "dot"}, {"font": {"color": "white"}, "id": "\ud55c\uad6d", "label": "\ud55c\uad6d", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uc774\ubaa8", "label": "\uc774\ubaa8", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uc0ac\ub78c", "label": "\uc0ac\ub78c", "shape": "dot"}, {"font": {"color": "white"}, "id": "\ubbfc\uc8fc\ub2f9", "label": "\ubbfc\uc8fc\ub2f9", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uacbd\ucc30", "label": "\uacbd\ucc30", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uac80\uc218\uc644\ubc15", "label": "\uac80\uc218\uc644\ubc15", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uacf5\uc815", "label": "\uacf5\uc815", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uc0c1\uc2dd", "label": "\uc0c1\uc2dd", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uacf5\ud654\uad6d", "label": "\uacf5\ud654\uad6d", "shape": "dot"}, {"font": {"color": "white"}, "id": "\uc218\uc900", "label": "\uc218\uc900", "shape": "dot"}, {"font": {"color": "white"}, "id": "\ub098\ub77c", "label": "\ub098\ub77c", "shape": "dot"}]);
+        edges = new vis.DataSet([{"from": "\uc870\uad6d", "to": "\uc218\uc0ac", "value": 19.0}, {"from": "\uc870\uad6d", "to": "\uad6d\ubbfc", "value": 11.0}, {"from": "\uc870\uad6d", "to": "\uac80\ucc30", "value": 13.0}, {"from": "\uac1c\ud601", "to": "\uac80\ucc30", "value": 14.0}, {"from": "\ud55c\uad6d", "to": "\uc774\ubaa8", "value": 15.0}, {"from": "\uc0ac\ub78c", "to": "\ubbfc\uc8fc\ub2f9", "value": 13.0}, {"from": "\uc218\uc0ac", "to": "\uacbd\ucc30", "value": 19.0}, {"from": "\uc218\uc0ac", "to": "\uad6d\ubbfc", "value": 11.0}, {"from": "\uc218\uc0ac", "to": "\uac80\ucc30", "value": 19.0}, {"from": "\uacbd\ucc30", "to": "\uac80\ucc30", "value": 15.0}, {"from": "\uac80\uc218\uc644\ubc15", "to": "\ubbfc\uc8fc\ub2f9", "value": 14.0}, {"from": "\uacf5\uc815", "to": "\uc0c1\uc2dd", "value": 24.0}, {"from": "\uacf5\uc815", "to": "\uad6d\ubbfc", "value": 12.0}, {"from": "\uacf5\ud654\uad6d", "to": "\uac80\ucc30", "value": 11.0}, {"from": "\uc218\uc900", "to": "\ubbfc\uc8fc\ub2f9", "value": 16.0}, {"from": "\uc0c1\uc2dd", "to": "\uad6d\ubbfc", "value": 11.0}, {"from": "\ubbfc\uc8fc\ub2f9", "to": "\ub098\ub77c", "value": 14.0}, {"from": "\ubbfc\uc8fc\ub2f9", "to": "\uad6d\ubbfc", "value": 18.0}, {"from": "\ub098\ub77c", "to": "\uad6d\ubbfc", "value": 16.0}, {"from": "\uad6d\ubbfc", "to": "\uac80\ucc30", "value": 17.0}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"borderWidth": null, "borderWidthSelected": 4, "opacity": 1, "font": {"size": 20, "strokeWidth": 1}, "size": 20}, "edges": {"hoverWidth": 1.0, "physics": false, "scaling": {"min": 3, "max": 15, "label": {"min": null, "max": null, "maxVisible": 30, "drawThreshold": null}}, "selectionWidth": 1.8, "selfReferenceSize": 28, "selfReference": {"size": 28, "angle": 1.5707963267949}, "smooth": false}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

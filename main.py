@@ -184,8 +184,7 @@ elif side == '청문회데이터':
         st.write("공출현수치 10 이상인 단어만 표시됩니다")
         st.write("아래 버튼을 눌러주세요")
         click = st.button("민주당 언어네트워크")
-        if click: 
-            #webbrowser.open_new_tab('dp_net.html')
+        if click: webbrowser.open_new_tab('dp_net.html')
 
 
         st.markdown("**🟡토픽모델링**")

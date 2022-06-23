@@ -293,7 +293,7 @@ elif side == '댓글':
         
         
         	        
-elif side == '토픽모델링 모아보기' :
+elif side == '👉토픽모델링 모아보기' :
     st.header("토픽모델링 모아보기")
     st.subheader("청문회회의록")
     chang_option = st.selectbox(
@@ -339,7 +339,7 @@ elif side == '토픽모델링 모아보기' :
             st.components.v1.html(html_string, width=1500, height=800, scrolling=False)  
 
                 
-elif side == "언어네트워크 모아보기" :
+elif side == "👉언어네트워크 모아보기" :
     st.header("언어네트워크 모아보기")
     st.subheader("청문회회의록")
     chang_options = st.selectbox(

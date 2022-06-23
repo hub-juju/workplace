@@ -189,7 +189,7 @@ elif side == '청문회데이터':
         if click:
             with open('dp_net.html', 'r') as f:
                 html_string = f.read()
-                st.components.v1.html(html_string, width=500, height=500, scrolling=False)      
+                st.components.v1.html(html_string, width=600, height=300, scrolling=False)      
             #webbrowser.open_new_tab('dp_net.html')
 
 

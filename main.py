@@ -352,5 +352,5 @@ elif side == '댓글':
 elif side == '토픽모델링 모아보기' :  
     with open('dp_vis.html', 'r') as f:
                 html_string = f.read()
-                st.components.v1.html(html_string, width=1300, height=800, scrolling=False)        
+                st.components.v1.html(html_string, width=500, height=300, scrolling=False)        
 

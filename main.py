@@ -158,7 +158,7 @@ elif side == 'Summary' :
 # 청문회데이터 페이지
 elif side == '청문회데이터':
     st.header("청문회데이터")
-    st.subheader("각 텍스트의 언어네트워크와 토픽모델링의 경우 사이드바에서 👉모아보기 메뉴에서 보실 수 있습니다.")
+    st.subheader("각 텍스트의 언어네트워크와 토픽모델링의 경우 사이드바에서 \n 👉모아보기 메뉴에서 보실 수 있습니다.")
     st.write("offline.ver 에서는 버튼을 통해 팝업으로 보실 수 있습니다. 현재는 online.ver를 보고 계십니다.")
     # options = st.multiselect("코사인 유사도를 보고 싶은 2가지를 고르세요", ["민주당발언", "한동훈발언", "국민의힘발언"])
     # d = []
@@ -294,7 +294,7 @@ elif side == '댓글':
         
         	        
 elif side == '👉토픽모델링 모아보기' :
-    st.header("토픽모델링 모아보기")
+    st.header("👉토픽모델링 모아보기")
     st.subheader("청문회회의록")
     chang_option = st.selectbox(
      '원하시는 데이터를 선택해주세요.',
@@ -340,7 +340,7 @@ elif side == '👉토픽모델링 모아보기' :
 
                 
 elif side == "👉언어네트워크 모아보기" :
-    st.header("언어네트워크 모아보기")
+    st.header("👉언어네트워크 모아보기")
     st.subheader("청문회회의록")
     chang_options = st.selectbox(
      '원하시는 데이터를 선택해주세요.',
@@ -348,15 +348,15 @@ elif side == "👉언어네트워크 모아보기" :
     if chang_options == "더불어민주당 의원 발언" :
         with open('dp_net.html', 'r') as f:
             html_string = f.read()
-            st.components.v1.html(html_string, width=1000, height=800, scrolling=False)    
+            st.components.v1.html(html_string, width=1000, height=600, scrolling=False)    
     elif chang_options == "국민의힘 소속의원 발언" :
         with open('pp_net.html', 'r') as f:
             html_string = f.read()
-            st.components.v1.html(html_string, width=1000, height=800, scrolling=False)    
+            st.components.v1.html(html_string, width=1000, height=600, scrolling=False)    
     elif chang_options == "한동훈 발언" :
         with open('han_net.html', 'r') as f:
             html_string = f.read()
-            st.components.v1.html(html_string, width=1000, height=800, scrolling=False)   
+            st.components.v1.html(html_string, width=1000, height=600, scrolling=False)   
             
     st.subheader("언론보도")
     news_options = st.selectbox(
@@ -365,11 +365,11 @@ elif side == "👉언어네트워크 모아보기" :
     if news_options == "보수언론" :
         with open('r_a_net.html', 'r') as f:
             html_string = f.read()
-            st.components.v1.html(html_string, width=1000, height=800, scrolling=False)    
+            st.components.v1.html(html_string, width=1000, height=600, scrolling=False)    
     elif news_options == "진보언론" :
         with open('l_a_net.html', 'r') as f:
             html_string = f.read()
-            st.components.v1.html(html_string, width=1000, height=800, scrolling=False)    
+            st.components.v1.html(html_string, width=1000, height=600, scrolling=False)    
 
     st.subheader("댓글")
     com_options = st.selectbox(
@@ -378,8 +378,8 @@ elif side == "👉언어네트워크 모아보기" :
     if com_options == "보수댓글" :
         with open('r_c_net.html', 'r') as f:
             html_string = f.read()
-            st.components.v1.html(html_string, width=1000, height=800, scrolling=False)    
+            st.components.v1.html(html_string, width=1000, height=600, scrolling=False)    
     elif com_options == "진보댓글" :
         with open('l_c_net.html', 'r') as f:
             html_string = f.read()
-            st.components.v1.html(html_string, width=1000, height=800, scrolling=False)  
+            st.components.v1.html(html_string, width=1000, height=600, scrolling=False)  

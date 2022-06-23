@@ -35,14 +35,22 @@ if side == "INTRO" :
     ***
     ## 연구문제
     
-    * 인사청문회, 언론 보도, 댓글 간 어떤 유사점과 차이점이 있는가? 
-    * 정치 진영에 따라 인사청문회에 대한 언론 보도, 댓글의 양상이 달라지는가?
+    1.	청문회 발언 양상: 
+        a.	보수진영(국민의힘) 의원, 진보진영(더불어민주당) 의원, 한동훈 후보자의 인사청문회 발언은 서로 얼마나 유사한가?
+        b.	인사청문회에서 보수진영의 위원, 진보진영의 위원, 한동훈 후보자는 각각 어떤 주제에 주목했는가? 그들이 사용한 도덕기반은 무엇인가?
+    2 .	언론 보도 양상: 
+        a.	보수/진보 언론은 인사청문회 내용(진보진영 의원, 보수진영 의원, 한동훈 후보자의 발언)을 얼마나 반영했는가? 즉, 보수/진보언론의 보도내용은 청문회 발언(보수진영 의원, 진보진영 의원, 한동훈 후보자의 발언) 내용과 얼마나 유사한가?
+        b.	보수언론과 진보언론의 인사청문회 보도내용은 서로 얼마나 유사한가?
+        c.	인사청문회와 관련하여 보수/진보 언론은 각각 어떤 주제에 주목했으며, 어떤 도덕기반에 근거하여 보도를 했는가?
+    3.	여론형성: 
+        a.	인사청문회 관련 보수/진보 언론의 기사가 여론에 어떤 영향을 주었는가? 즉, 보수/진보 언론의 보도내용과 각 언론의 기사댓글은 서로 얼마나 유사한가?
+        b.	보수/진보 언론의 기사댓글은 서로 얼마나 유사한가? 각각 어떤 주제에 주목했으며, 어떤 도덕기반을 사용하는가?
     
     ***
     ## 연구대상
     | 청문회회의록      |    뉴스 기사      | 댓글              |
     |-------------------|-------------------|-------------------|
-    |국민의 힘 의원 발언| 보수(조선, 중앙)  | 보수(조선, 중앙)  |
+    |국민의힘 의원 발언| 보수(조선, 중앙)  | 보수(조선, 중앙)  |
     |민주당 의원 발언   | 진보(한겨레, 경향)| 진보(한겨레, 경향)|
     |한동훈 발언        |                   |                   |
     
@@ -160,22 +168,6 @@ elif side == '청문회데이터':
     st.header("청문회데이터")
     st.markdown("## 각 텍스트의 언어네트워크와 토픽모델링의 경우 사이드바에서 👉모아보기 메뉴를 통해 보실 수 있습니다.")
     st.write("offline.ver 에서는 버튼을 통해 팝업으로 보실 수 있습니다. 현재 보고계신 문서는 online.ver 입니다.")
-    # options = st.multiselect("코사인 유사도를 보고 싶은 2가지를 고르세요", ["민주당발언", "한동훈발언", "국민의힘발언"])
-    # d = []
-    # try:
-    #     for i in options:
-    #         if i == "민주당발언":
-    #             a = dp_str
-    #             d.append(a)
-    #         elif i == "한동훈발언":
-    #             b = han_str
-    #             d.append(b)
-    #         elif i == "국민의힘발언":
-    #             c = pp_str
-    #             d.append(c)
-    #     cos_sim(d[0], d[1])
-    # except:
-    #     st.write("현재", len(options), "개를 고르셨습니다.", " 2개를 골라주세요")
 
     st.markdown("***")
 
@@ -202,7 +194,7 @@ elif side == '청문회데이터':
         st.markdown("**🟡도덕기반사전**")
         st.image("국힘발언_moral.png")
 
-        selected_moral = st.selectbox('국민의 힘 도덕기반선택', ["보살핌", "가해", "공정", "부정", "충성", "배반", "권위", "전복", "순수", "타락"])
+        selected_moral = st.selectbox('국민의힘 도덕기반선택', ["보살핌", "가해", "공정", "부정", "충성", "배반", "권위", "전복", "순수", "타락"])
         moral_dic = {"보살핌": 0, "가해": 1, "공정": 2, "부정": 3, "충성": 4, "배반": 5, "권위": 6, "전복": 7, "순수": 8, "타락": 9}
         moral_detail(pp_moral, moral_dic["{}".format(str(selected_moral))])
 
@@ -221,15 +213,14 @@ elif side == '청문회데이터':
 
 elif side == '언론보도':
     st.header("언론보도 데이터")
-    st.subheader("각 텍스트의 언어네트워크와 토픽모델링의 경우 사이드바에서")
-    st.subheader("👉모아보기 메뉴를 통해 보실 수 있습니다.")
+    st.markdown("## 각 텍스트의 언어네트워크와 토픽모델링의 경우 사이드바에서 👉모아보기 메뉴를 통해 보실 수 있습니다.")
     st.write("offline.ver 에서는 버튼을 통해 팝업으로 보실 수 있습니다. 현재 보고계신 문서는 online.ver 입니다.")
     st.markdown("***")
     
     col1, col2 = st.columns(2)
 
     with col1:
-        st.markdown("<h3 style='text-align: center; background-color:red;'>보수언론 (조선, 동아일보)</h3>",
+        st.markdown("<h3 style='text-align: center; background-color:red;'>보수언론 (조선, 중앙일보)</h3>",
                     unsafe_allow_html=True)
         st.markdown(" ")
         st.markdown("**🟡 워드클라우드**")
@@ -259,15 +250,14 @@ elif side == '언론보도':
 
 elif side == '댓글':
     st.header("댓글 데이터")
-    st.subheader("각 텍스트의 언어네트워크와 토픽모델링의 경우 사이드바에서")
-    st.subheader("👉모아보기 메뉴를 통해 보실 수 있습니다.")
+    st.markdown("## 각 텍스트의 언어네트워크와 토픽모델링의 경우 사이드바에서 👉모아보기 메뉴를 통해 보실 수 있습니다.")
     st.write("offline.ver 에서는 버튼을 통해 팝업으로 보실 수 있습니다.현재 보고계신 문서는 online.ver 입니다.")
     st.markdown("***")
     
     col1, col2 = st.columns(2)
 
     with col1:
-        st.markdown("<h3 style='text-align: center; background-color:red;'>보수언론댓글(조선, 동아)</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; background-color:red;'>보수언론댓글(조선, 중앙)</h3>", unsafe_allow_html=True)
         st.markdown(" ")
         st.markdown("**🟤 워드클라우드**")
         st.image("보수댓글 wc.png")
